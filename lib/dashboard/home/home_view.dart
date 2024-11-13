@@ -186,6 +186,7 @@ class HomeView extends StatelessWidget {
                                     fontSize: 10.0,
                                     color: AppColor.deepCharcoal),
 
+
                               ///Space
                               Row(children: [
                                 CommonUi.commonText('Starting at ',
