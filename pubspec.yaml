@@ -47,6 +47,8 @@ dependencies:
   flutter_styled_toast: ^2.2.1
   adaptive_dialog: ^2.2.1+2
   device_preview: ^1.2.0
+  google_maps_flutter: ^2.9.0
+  geolocator: ^13.0.1
 
 dev_dependencies:
   flutter_test:
@@ -103,6 +105,22 @@ flutter:
     - family: Montserrat SemiBold
       fonts:
             - asset: assets/fonts/montserrat_semibold.ttf
+
+    - family: Montserrat Regular Italic
+      fonts:
+        - asset: assets/fonts/montserrat_regular_italic.ttf
+
+    - family: Montserrat Medium Italic
+      fonts:
+        - asset: assets/fonts/montserrat_medium_italic.ttf
+
+    - family: Gantari Medium
+      fonts:
+        - asset: assets/fonts/gantari_medium.ttf
+
+    - family: Montserrat Bold Italic
+      fonts:
+        - asset: assets/fonts/montserrat_bold_italic.ttf
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf

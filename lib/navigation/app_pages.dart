@@ -4,6 +4,8 @@ import 'package:designs/demo_screen.dart';
 import 'package:designs/forgot/forgot_view.dart';
 import 'package:designs/login/login_binding.dart';
 import 'package:designs/login/login_view.dart';
+import 'package:designs/map/map_binding.dart';
+import 'package:designs/map/map_view.dart';
 import 'package:designs/navigation/app_routes.dart';
 import 'package:designs/signup/signup_view.dart';
 import 'package:designs/splash/splash_view.dart';
@@ -42,6 +44,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.demoScreen,
       page: () => const DemoScreen(),
+    ),
+    ///MapView
+    GetPage(
+      name: AppRoutes.mapView,
+      page: () => MapView(),
+      binding: MapBinding(),
     ),
   ];
 }

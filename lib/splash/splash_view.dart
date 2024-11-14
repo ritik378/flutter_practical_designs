@@ -30,12 +30,13 @@ class _SplashViewState extends State<SplashView> {
 
   void navigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      if (GetStorage().read(AppString.isLogin) == null ||
-          GetStorage().read(AppString.isLogin) == false) {
-        Get.offNamed(AppRoutes.login);
-      } else {
-        Get.offNamed(AppRoutes.home);
-      }
+      //   if (GetStorage().read(AppString.isLogin) == null ||
+      //       GetStorage().read(AppString.isLogin) == false) {
+      //     Get.offNamed(AppRoutes.login);
+      //   } else {
+      //     Get.offNamed(AppRoutes.home);
+      //   }
+      Get.offNamed(AppRoutes.home);
     });
   }
 }

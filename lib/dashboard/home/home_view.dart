@@ -2,8 +2,8 @@ import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:designs/common/app_color.dart';
 import 'package:designs/common/common_ui.dart';
 import 'package:designs/common/custom_booking.dart';
-import 'package:designs/common/custom_booking.dart';
 import 'package:designs/common/fonts.dart';
+import 'package:designs/common/languages/custom_location.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -113,9 +113,10 @@ class HomeView extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+
+              ///View All Row
               Row(
                 children: [
-                  ///Near by arenas
                   CommonUi.commonText(
                     'Near by arenas',
                     fontFamily: Fonts.semiBold,
@@ -142,68 +143,12 @@ class HomeView extends StatelessWidget {
               ListView(
                 shrinkWrap: true,
                 children: [
-                  Row(
-                    children: [
-                      CommonUi.setPngImage('thunder', height: 64, width: 60),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CommonUi.commonText('Thunderhoof Arena',
-                              fontFamily: Fonts.semiBold, fontSize: 12.0),
-
-                          ///Space...
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          Row(
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                                size: 20,
-                              ),
-                              //Space
-                              const SizedBox(
-                                width: 3,
-                              ),
-                              CommonUi.commonText('Marshall, Virginia',
-                                  fontFamily: Fonts.semiBold,
-                                  fontSize: 10.0,
-                                  color: AppColor.deepCharcoal),
-                            ],
-                          ),
-
-                          ///Space...
-                          const SizedBox(
-                            height: 4,
-                          ),
-                          Row(
-                            children: [
-                               CommonUi.commonText('Sunset Grove',
-                                    fontFamily: Fonts.regular,
-                                    fontSize: 10.0,
-                                    color: AppColor.deepCharcoal),
-
-
-                              ///Space
-                              Row(children: [
-                                CommonUi.commonText('Starting at ',
-                                    fontFamily: Fonts.regular,
-                                    fontSize: 10.0,
-                                    color: AppColor.deepCharcoal),
-                                CommonUi.commonText("50",
-                                    fontFamily: Fonts.bold,
-                                    fontSize: 10.0,
-                                    color: AppColor.deepCharcoal),
-
-                              ],),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  const CustomLocation(
+                    'thunder',
+                    title: 'Thunderhoof Arena',
+                    location: 'Marshall, Virginia',
+                    subTitle: 'Sunset Grove',
+                    prise: '50',
                   ),
                 ],
               ),
