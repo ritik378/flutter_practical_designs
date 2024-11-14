@@ -10,4 +10,5 @@ class AppColor{
  static const Color softSky = Color.fromRGBO(238, 244, 255, 1);
  static const Color deepCharcoal = Color.fromRGBO(27, 27, 27, 1);
  static const Color mistyGray = Color.fromRGBO(207, 207, 207, 0.64);
+ static const Color lightBlack = Color.fromRGBO(0, 0, 0, 0.06);
 }

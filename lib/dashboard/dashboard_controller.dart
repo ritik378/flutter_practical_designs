@@ -6,18 +6,21 @@ import 'package:get/get.dart';
 class DashboardController extends GetxController {
   var selectedIndex = 0.obs;
 
-   ///onItemTapped...
+  ///onItemTapped...
   void onItemTapped(int index) {
     selectedIndex.value = index;
   }
+
   //NavScreens...
-  List<Widget> navScreens() {
-    return [
-      HomeView(),
-      Center(child: CommonUi.commonText('My horse'),),
-      Center(child: CommonUi.commonText('More'),),
-    ];
-  }
+  List<Widget> navScreens = [
+    HomeView(),
+    Center(
+      child: CommonUi.commonText('My horse'),
+    ),
+    Center(
+      child: CommonUi.commonText('More'),
+    ),
+  ];
 
   //NavBars items.
   List<BottomNavigationBarItem> navBarsItems() {
@@ -28,6 +31,7 @@ class DashboardController extends GetxController {
         activeIcon: CommonUi.setSvgImage('home_active', height: 24, width: 24),
         label: 'Home',
       ),
+
       ///Horse...
       BottomNavigationBarItem(
         icon: CommonUi.setSvgImage('horse_bottom_inactive',
@@ -36,6 +40,7 @@ class DashboardController extends GetxController {
             CommonUi.setSvgImage('horse_bottom_active', height: 24, width: 24),
         label: 'Horse',
       ),
+
       ///More...
       BottomNavigationBarItem(
         activeIcon:

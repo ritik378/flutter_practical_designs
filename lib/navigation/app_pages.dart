@@ -1,5 +1,7 @@
 import 'package:designs/dashboard/dashboard_view.dart';
 import 'package:designs/dashboard/dashboard_binding.dart';
+import 'package:designs/dashboard/home/home_binding.dart';
+import 'package:designs/dashboard/home/home_view.dart';
 import 'package:designs/demo_screen.dart';
 import 'package:designs/forgot/forgot_view.dart';
 import 'package:designs/login/login_binding.dart';
@@ -18,38 +20,50 @@ class AppPages {
       name: AppRoutes.splash,
       page: () => const SplashView(),
     ),
+
     ///Login
     GetPage(
       name: AppRoutes.login,
       page: () => LoginView(),
       binding: LoginBinding(),
     ),
+
     ///Signup
     GetPage(
       name: AppRoutes.signup,
       page: () => SignupView(),
     ),
+
     ///Forgot
     GetPage(
       name: AppRoutes.forgot,
       page: () => ForgotView(),
     ),
-    ///Home
+
+    ///Dashboard
     GetPage(
       name: AppRoutes.home,
       page: () => const DashboardView(),
-      binding: DashboardBinding(),
+      bindings: [DashboardBinding(), HomeBinding()],
     ),
+
     ///DemoScreen
     GetPage(
       name: AppRoutes.demoScreen,
       page: () => const DemoScreen(),
     ),
+
     ///MapView
     GetPage(
       name: AppRoutes.mapView,
       page: () => MapView(),
       binding: MapBinding(),
+    ),
+    ///home View
+    GetPage(
+      name: AppRoutes.home,
+      page: () => HomeView(),
+      binding: HomeBinding(),
     ),
   ];
 }

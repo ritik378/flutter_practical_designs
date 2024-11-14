@@ -21,7 +21,7 @@ class _DashboardViewState extends State<DashboardView> {
       color: Colors.white,
       child:Obx(()=> Scaffold(
         backgroundColor: AppColor.white,
-        body: dashboardController.navScreens()[dashboardController.selectedIndex.value],
+        body: dashboardController.navScreens[dashboardController.selectedIndex.value],
         bottomNavigationBar:  BottomNavigationBar(
             selectedLabelStyle: const TextStyle(
               fontSize: 14,

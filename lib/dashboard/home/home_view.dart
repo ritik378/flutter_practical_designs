@@ -3,32 +3,16 @@ import 'package:designs/common/app_color.dart';
 import 'package:designs/common/common_ui.dart';
 import 'package:designs/common/custom_booking.dart';
 import 'package:designs/common/fonts.dart';
-import 'package:designs/common/languages/custom_location.dart';
+import 'package:designs/dashboard/home/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+/// A stateless widget that represents the home view of the application.
 class HomeView extends StatelessWidget {
   HomeView({super.key});
 
-  final List<CustomBooking> bookingList = [
-    const CustomBooking(
-      title: 'Livery Yard',
-      date: '12 Oct 2024',
-      time: '07:30PM',
-      subTitle: 'Riding arena',
-    ),
-    const CustomBooking(
-      title: 'Starlight Stables',
-      date: '28 Oct 2024',
-      time: '07:30PM',
-      subTitle: 'Echo Valley Arena',
-    ),
-    const CustomBooking(
-      title: 'Whispering Pines',
-      date: '12 Oct 2024',
-      time: '07:30PM',
-      subTitle: 'Echo Valley Arena',
-    ),
-  ];
+  /// The controller for managing the state and logic of the home view.
+  final HomeController homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -41,37 +25,29 @@ class HomeView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              /// Row containing greeting text and a notification icon.
               Row(
                 children: [
                   Column(
                     children: [
-                      ///Hello, Sarah
                       CommonUi.commonText('Hello, Sarah',
                           fontFamily: Fonts.semiBold, fontSize: 12.0),
-
-                      ///Space....
                       const SizedBox(height: 4),
-
-                      ///Good Morning...
                       CommonUi.commonText('Good Morning!',
                           fontFamily: Fonts.regular, fontSize: 10.0),
                     ],
                   ),
-
-                  ///Spacer....
                   const Spacer(),
-
-                  ///Bell
                   CommonUi.setSvgImage('bell', height: 22, width: 22),
                 ],
               ),
 
-              ///Space...
               const SizedBox(
                 height: 24,
               ),
 
-              ///Booking Container...
+              /// Container displaying the user's bookings.
               Container(
                 height: 179,
                 width: double.infinity,
@@ -81,40 +57,44 @@ class HomeView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ///My Bookings...
                       CommonUi.commonText('My Bookings',
                           fontFamily: Fonts.semiBold,
                           fontSize: 14.0,
                           color: AppColor.deepCharcoal),
 
-                      ///Space...
                       const SizedBox(
                         height: 12,
                       ),
+
+                      /// List of bookings.
                       Expanded(
-                        child: ListView.builder(
-                            itemCount: bookingList.length,
+                        child: Obx(() {
+                          return ListView.builder(
+                            itemCount: homeController.bookingList.length,
                             itemBuilder: (context, index) {
                               return CustomBooking(
-                                title: bookingList[index].title,
-                                date: bookingList[index].date,
-                                time: bookingList[index].time,
-                                subTitle: bookingList[index].subTitle,
-                                isLast: index == bookingList.length - 1,
+                                title: homeController.bookingList[index].title,
+                                date: homeController.bookingList[index].date,
+                                time: homeController.bookingList[index].time,
+                                subTitle: homeController.bookingList[index]
+                                    .subTitle,
+                                isLast: index ==
+                                    homeController.bookingList.length - 1,
                               );
-                            }),
+                            },
+                          );
+                        }),
                       ),
                     ],
                   ),
                 ),
               ),
 
-              ///Space...
               const SizedBox(
                 height: 20,
               ),
 
-              ///View All Row
+              /// Row containing a title and a "View All" option for nearby arenas.
               Row(
                 children: [
                   CommonUi.commonText(
@@ -122,11 +102,7 @@ class HomeView extends StatelessWidget {
                     fontFamily: Fonts.semiBold,
                     fontSize: 14.0,
                   ),
-
-                  ///Spacer...
                   const Spacer(),
-
-                  ///View All
                   CommonUi.commonText(
                     'View All',
                     fontFamily: Fonts.medium,
@@ -135,23 +111,21 @@ class HomeView extends StatelessWidget {
                 ],
               ),
 
-              ///Space..
               const SizedBox(
                 height: 10,
               ),
 
-              ListView(
-                shrinkWrap: true,
-                children: [
-                  const CustomLocation(
-                    'thunder',
-                    title: 'Thunderhoof Arena',
-                    location: 'Marshall, Virginia',
-                    subTitle: 'Sunset Grove',
-                    prise: '50',
+              /// List of nearby locations.
+              Obx(() {
+                return Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: homeController.locations.map((location) {
+                      return location;
+                    }).toList(),
                   ),
-                ],
-              ),
+                );
+              }),
             ],
           ),
         ),
